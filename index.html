@@ -17,40 +17,39 @@
     <title>布兰.P__'s主页</title>
 </head>
 <body>
-<<<<<<< HEAD
     <div id="app">
         <v-app>
-            <v-app-bar
-            dense
-            dark
-            app
-          >
-            <v-app-bar-nav-icon><i class="material-icons">expand_more</i></v-app-bar-nav-icon>
-            <v-toolbar-title>welcome to my homepage</v-toolbar-title>
-      
-            <v-spacer></v-spacer>
-                 
-            <v-btn icon>
-              <span class="material-icons">apps</span>
-            </v-btn>
-      
-            <v-btn icon>
-                <span class="material-icons">login </span>
-            </v-btn>
 
-          </v-app-bar>
+                    <v-expansion-panels
+            v-model="panel"
+            :disabled="disabled"
+            multiple dark
+            >
+                <v-expansion-panel>
+                    <v-expansion-panel-header>Welcome to my homepage</v-expansion-panel-header>
+                    <v-expansion-panel-content>
+                        <v-container grid-list-sm>
+                            <v-layout row wrap>
+                                <v-flex xs6 md4 v-for="item in category" :key=i>
+                                    <a :href=item.link>
+                                        <v-card color='grey darken-3'>
+                                            <v-card-text class="px0">{{item.name}}</v-card-text>
+                                        </v-card>
+                                     </a>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
+                    </v-expansion-panel-content>
+                </v-expansion-panel>
+            </v-expansion-panels>
+
 
             <v-main>
-                <v-container grid-list-sm>
-                    <v-layout row wrap>
-                        <v-flex xs6 md4 v-for="i in 5" :key=i>
-                            <v-card dark color='primary'>
-                                <v-card-text class="px0">12</v-card-text>
-                            </v-card>
-                        </v-flex>
-                    </v-layout>
-                    {{hello}}
-                </v-container>
+                <div class="ma-10">
+                    <h1>Welcome!</h1>
+                    <h2>欢迎来到我的个人主页</h2>
+                    <p>under construction...</p>
+                </div>
             </v-main>
 
             <v-footer padless app dark>
@@ -71,14 +70,17 @@
             vuetify: new Vuetify(),
             data(){
                 return{
-                    hello:'Hello World'
+                    category:[
+                        {name:"随笔",link:"notes.html"},
+                        {name:"心得"},
+                        {name:"建筑"},
+                        {name:"模型"},              
+                        {name:"简历"},
+                    ]
                 }
             }
         })
     </script>
    
-=======
-    <h1>Hi, not yet completed. Please wait...</h1>
->>>>>>> 8507372580c3d11308ed0bcbd73d227ace8f6ffb
 </body>
 </html>

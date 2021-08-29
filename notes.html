@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./font.css">
+    <link rel="stylesheet" href="./mdi.min.css">
+    <link rel="stylesheet" href="./vuetify.min.css">
+    <!-- 使用material design 图标 -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+
+    <script src="./vue.js"></script>
+
+    <title>黄金虫·第三章</title>
+</head>
+<body>
+    <div id="app">
+        <iframe src="https://onedrive.live.com/embed?cid=028911C4042CD750&amp;resid=28911C4042CD750%21186345&amp;authkey=AFpPtgDCCIQd3ek&amp;em=2" :width= width :height= height frameborder="0">这是嵌入 <a target="_blank" href="https://office.com">Microsoft Office</a> 文档，由 <a target="_blank" href="https://office.com/webapps">Office</a> 提供支持。</iframe>
+    </div>
+</body>
+</html>
+
+<script>
+
+new Vue({
+        el:"#app",
+        data(){
+            return{
+                width: window.innerWidth,
+                height:window.innerHeight
+            }
+        }
+    })
+</script>
