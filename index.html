@@ -4,9 +4,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>布兰.P__主页</title>
+
+    <link rel="stylesheet" href="./font.css">
+    <link rel="stylesheet" href="./mdi.min.css">
+    <link rel="stylesheet" href="./vuetify.min.css">
+    <!-- 使用material design 图标 -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+
+    <script src="./vue.js"></script>
+    <script src="./vuetify.js"></script>
+
+    <title>布兰.P__'s主页</title>
 </head>
 <body>
-    Hi, not yet completed. Please wait...
+    <div id="app">
+        <v-app>
+            <v-app-bar
+            dense
+            dark
+            app
+          >
+            <v-app-bar-nav-icon><i class="material-icons">expand_more</i></v-app-bar-nav-icon>
+            <v-toolbar-title>welcome to my homepage</v-toolbar-title>
+      
+            <v-spacer></v-spacer>
+                 
+            <v-btn icon>
+              <span class="material-icons">apps</span>
+            </v-btn>
+      
+            <v-btn icon>
+                <span class="material-icons">login </span>
+            </v-btn>
+
+          </v-app-bar>
+
+            <v-main>
+                <v-container grid-list-sm>
+                    <v-layout row wrap>
+                        <v-flex xs6 md4 v-for="i in 5" :key=i>
+                            <v-card dark color='primary'>
+                                <v-card-text class="px0">12</v-card-text>
+                            </v-card>
+                        </v-flex>
+                    </v-layout>
+                    {{hello}}
+                </v-container>
+            </v-main>
+
+            <v-footer padless app dark>
+                <v-col 
+                  class="text-center pb-0"
+                  cols="12"
+                >
+                  ----·-·-·-·- {{ new Date().getFullYear() }}, the <strong>Mainpage of Bran.P</strong> -·-·-·-·----
+                </v-col>
+              </v-footer>
+        </v-app>
+    </div>
+
+
+    <script>
+        new Vue({
+            el:"#app",
+            vuetify: new Vuetify(),
+            data(){
+                return{
+                    hello:'Hello World'
+                }
+            }
+        })
+    </script>
+   
 </body>
 </html>
