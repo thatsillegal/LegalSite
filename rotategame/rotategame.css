@@ -1,0 +1,20 @@
+#container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,100px);
+    /* auto-row 可以让新增的行有自动高度，不需人为控制 */
+    grid-auto-rows: 100px;
+}
+
+.rect{
+    font-size: 2em;
+    text-align: center;
+    border: 1px solid #e5e4e9;
+}
+
+div.rect:nth-child(odd){
+    background-color: green;
+}
+
+div.rect:nth-child(even){
+    background-color: blue;
+}
