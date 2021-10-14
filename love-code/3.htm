@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+        }
+        .a{
+            font-size:30vh;
+            padding:0;
+            margin:0;
+            text-align: center;
+            vertical-align: middle;
+            height: 100vh;
+            /* 我爱你 vh 和 vw! */
+            width:100vw; 
+            background-color: #F69;
+            /* 把显示模式改成表格样式，这样就可以用vertical-align了 */
+            display: table-cell;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">?</div>
+    <script>
+        var i = 0
+        window.addEventListener('click',function(){
+            if(i==0) {
+                document.body.innerHTML="<div class=\"a\">欢<div>";
+                i++
+            }
+            else{
+                document.body.innerHTML="<div class=\"a\"><div>";
+            }
+        })
+    </script>
+</body>
+</html>
