@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game-1</title>
+    <style>
+        body{
+            margin:50px;
+        }
+        header{
+            background-color:rgb(226, 226, 226);
+            text-align: center;
+        }
+        .main{
+            display: grid;
+            grid-template-columns: 80% 20%;
+        }
+        form{
+            display: table;
+            margin: 0;
+        }
+        form div{
+            display: table-row;
+        }
+        form label, form input{
+            display: table-cell;
+            margin-bottom: 10px;
+        }
+        form label{
+            width:200px;
+            padding-right:5%;
+            text-align: right;
+        }
+        form input{
+            width:100px;
+        }
+        form p{
+            display: table-caption;
+            caption-side: top;
+            font-style: italic;
+            color: #999;
+            width:200px
+        }
+        #line{
+            margin-top: 10px;
+            width:20px;
+            height:50vh;
+            border-right:solid #000;
+        }
+        footer{
+            background-color: rgb(226, 226, 226);
+            text-align: center;
+        }
+        .rect{
+            border-style: solid;
+            border-width: 0.1px;
+            border-color: #999;
+        }
+        /* .rect:nth-child(odd){
+            background-color: green;
+        }
+        .rect:nth-child(even){
+            background-color:blue;
+        } */
+    </style>
+    <script src="anime.js"></script>
+    <script>
+        var drawTile = function(){
+            //首先清空该元素下的所有内容
+            let container = document.getElementById("wrapper")
+            container.innerHTML = ""
+
+            let i = document.getElementById('width').value
+            let j = document.getElementById('height').value
+            let rectHeight = container.clientHeight/j;
+            let rectWidth = container.clientWidth/i;
+            let rectLength = Math.min(rectHeight,rectWidth);
+
+            //js脚本中不支持- 段横杠写法 ，只支持驼峰写法
+            container.style.gridTemplateColumns = "repeat("+i+","+rectLength+"px)";
+            container.style.gridTemplateRows = "repeat("+j+","+rectLength+"px)";
+            container.style.gridGap = '1px'
+            
+            let n = i*j
+            for(let i = 0;i< n; i++){
+                let rect = document.createElement("div")
+                rect.className = 'rect'
+
+
+                //要用js添加svg的话，就一定要写命名空间，当然，据说用d3.js会更简单
+                let SVG_NS = 'http://www.w3.org/2000/svg';
+                let curve = document.createElementNS(SVG_NS,"svg")
+                curve.className = "curve"
+                curve.setAttribute('width',rectLength)
+                curve.setAttribute('height',rectLength)
+
+                let path = document.createElementNS(SVG_NS,'path')
+                path.setAttribute('stroke','#000000')
+                path.setAttribute('fill','none')
+                let pathstring = 'M0 ' + rectLength/2 +',Q'+rectLength/2 +' '+rectLength/2 +',' +rectLength/2 +' '+ rectLength 
+                path.setAttribute('d',pathstring)
+
+                let path2 = document.createElementNS(SVG_NS,'path')
+                path2.setAttribute('stroke','#000000')
+                path2.setAttribute('fill','none')
+                let pathstring2 = 'M' + rectLength/2 +' 0,Q'+rectLength/2 +' '+rectLength/2 +',' +rectLength +' '+ rectLength/2 
+                path2.setAttribute('d',pathstring2)
+
+                curve.appendChild(path)
+                curve.appendChild(path2)
+                rect.appendChild(curve)
+                container.appendChild(rect)
+
+                // let txt = document.createTextNode(i)
+                // rect.appendChild(txt)
+                // container.appendChild(rect)
+            }
+            let divs = document.getElementsByClassName('rect')
+
+            for(let i=0;i<divs.length;i++){
+                divs[i].addEventListener('click',function(){
+                    
+                    anime({
+                        targets: this,
+                        rotate: '+=90',
+                        borderRadius: 0,
+                        duration: 200,
+                        loop: false
+                    })
+
+                    // console.log(this)
+                },false)
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        Game-1
+    </header>
+    <div class="main">
+        <div id="wrapper" style="display: grid">
+            <script>
+                window.onload = drawTile
+            </script>
+        </div>
+        <div>
+            <div id="line"></div>
+            <div id="table">
+                <form>
+                    <p>填写设计详情：</p>
+                    <div>
+                        <label for="width">Width:</label>
+                        <input type="text" id="width" value="10" onchange="drawTile()">
+                    </div>
+                    <div>
+                        <label for="height">Height:</label>
+                        <input type="text" id="height" value="10" onchange="drawTile()">
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        
+        
+    </div>
+    <footer>
+        220200004@seu.edu.com
+    </footer>
+    <script>
+        window.addEventListener('resize',drawTile)
+    </script>
+
+</body>
+</html>
