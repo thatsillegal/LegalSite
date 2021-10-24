@@ -15,7 +15,7 @@ function setup() {
   envelope = new p5.Env();
   envelope.setADSR(0.001, 0.5, 0.1, 0.5);
   envelope.setRange(1, 0);  
-  osc.start();
+  // osc.start();
 
   for (let id = 0; id < length; id++) {
       tiles.push( Math.floor(Math.random() * 2)  );
@@ -59,7 +59,8 @@ function mouseReleased() {
     let j = id % col;
     if (mouseX > j * u && mouseX < (j + 1) * u && mouseY > i * u && mouseY < (i + 1) * u) {
       tiles[id] = (tiles[id] + 1) % 2;
-      getAudioContext().resume()
+      // getAudioContext().resume()
+      osc.start();
       osc.freq(midiToFreq(50 + id % 8));
       envelope.play(osc, 0, 0.1);
       return;
@@ -67,4 +68,3 @@ function mouseReleased() {
   }
 
 }
-
