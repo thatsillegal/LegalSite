@@ -7,11 +7,11 @@
   <body>
     <form>
       cols:
-      <input type="number" name="cols" value="6" id="cols" onchange="resetSketch()">
+      <input type="number" name="cols" value="6" id="cols" oninput="if(value>20) value=20" onchange="resetSketch()">
       <!-- 空格的意思 -->
       &emsp;&emsp; 
       rows: 
-      <input type="number" name="rows" value="6" id="rows" onchange="resetSketch()">
+      <input type="number" name="rows" value="6" id="rows" oninput="if(value>20) value=20" onchange="resetSketch()">
     </form>
 
     <script>
