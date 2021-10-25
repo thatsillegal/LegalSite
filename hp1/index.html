@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <script src="p5.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+    
+  </head>
+  <body>
+    <form>
+      cols:
+      <input type="number" name="cols" min="1" max="40" value="6" id="cols" oninput="if(value>20) value=20" onchange="resetSketch()">
+      <!-- 空格的意思 -->
+      &emsp;&emsp; 
+      rows: 
+      <input type="number" name="rows" min="1" max="40" value="6" id="rows" oninput="if(value>20) value=20" onchange="resetSketch()">
+    </form>
+    <script src="sketch.js"></script>
+  </body>
+</html>
