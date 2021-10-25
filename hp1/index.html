@@ -13,10 +13,10 @@
       rows: 
       <input type="number" name="rows" min="1" max="40" value="6" id="rows" oninput="if(value>20) value=20" onchange="resetSketch()">
     </form>
-    <button style="height:10vh; width:20vw" onclick="let a = document.getElementById('rows').value; document.getElementById('rows').value = Number(a) + 1; resetSketch()">Row On</button>
-    <button style="height:10vh; width:20vw" onclick="let a = document.getElementById('rows').value; document.getElementById('rows').value = Number(a) - 1; resetSketch()">Row Down</button>
-    <button style="height:10vh; width:20vw" onclick="let a = document.getElementById('cols').value; document.getElementById('cols').value = Number(a) + 1; resetSketch()">Col On</button>
-    <button style="height:10vh; width:20vw" onclick="let a = document.getElementById('cols').value; document.getElementById('cols').value = Number(a) - 1; resetSketch()">Col Down</button>
+    <button style="height:10vh; width:20vw" onclick="let a = document.getElementById('rows').value; document.getElementById('rows').value = Number(a) + 1; resetSketch()">IncreaseRows</button>
+    <button style="height:10vh; width:20vw" onclick="let a = document.getElementById('rows').value; document.getElementById('rows').value = Number(a) - 1; resetSketch()">DecreaseRows</button>
+    <button style="height:10vh; width:20vw" onclick="let a = document.getElementById('cols').value; document.getElementById('cols').value = Number(a) + 1; resetSketch()">IncreaseCols</button>
+    <button style="height:10vh; width:20vw" onclick="let a = document.getElementById('cols').value; document.getElementById('cols').value = Number(a) - 1; resetSketch()">DecreaseCols</button>
     <script src="sketch.js"></script>
   </body>
 </html>
