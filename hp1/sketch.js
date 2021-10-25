@@ -1,4 +1,4 @@
-let winw = window.innerWidth;
+let winw = document.getElementsByTagName('body')[0].clientWidth;
 let col = document.getElementById('cols').value;
 let fm = 3 * col / 2 + 0.5;
 console.log('fm='+fm)
@@ -20,7 +20,7 @@ let tiles = [];
 let osc, envelope, fft;
 
 function resetSketch(){
-  winw = window.innerWidth;
+  winw = document.getElementsByTagName('body')[0].clientWidth;
   col = document.getElementById('cols').value;
   fm = 3 * col / 2 + 0.5;
   console.log('fm='+fm)
