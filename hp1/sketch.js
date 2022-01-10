@@ -105,7 +105,7 @@ function drawHex(x,y, k){
   pop();
 }
 
-function mouseReleased() {
+function mouseClicked() {
   for (let i = 0; i < row; i++) {
     for (let j = 0; j < col; j++) {
       let x = (3 * j / 2 + 1) * r;
