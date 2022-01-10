@@ -2,9 +2,8 @@
   <head>
     <script src="p5.min.js"></script>
     <script src="p5.sound.min.js"></script>
-    <!-- <script src="sketch.js"></script> -->
   </head>
-  <body>
+  <body style="margin:3">
     <form>
       cols:
       <input type="number" name="cols" value="6" id="cols" oninput="if(value>20) value=20" onchange="resetSketch()">
@@ -15,7 +14,7 @@
     </form>
 
     <script>
-        let winw=600;
+        let winw=document.getElementsByTagName('body')[0].clientWidth-6;//减去的数为margin
         let col= document.getElementById('cols').value;
         let row= document.getElementById('rows').value;
         let u=winw/col;
@@ -29,6 +28,7 @@
         console.log('nihao')
 
         function resetSketch(){
+          winw=document.getElementsByTagName('body')[0].clientWidth-6;//减去的数为margin
           col= document.getElementById('cols').value;
           row= document.getElementById('rows').value;
           u=winw/col;
@@ -108,7 +108,12 @@
             }
           }
         }   
-      
+        window.addEventListener("resize",resetSketch)
     </script>
   </body>
+  <style>
+    body::-webkit-scrollbar{
+      width:0px;
+    }
+  </style>
 </html>
