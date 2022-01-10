@@ -1,13 +1,12 @@
 let winw = document.getElementsByTagName('body')[0].clientWidth;
 let col = document.getElementById('cols').value;
-let fm = 3 * col / 2 + 0.5;
+let fm = 3 * col / 2 +0.5;
 console.log('fm='+fm)
 let row = document.getElementById('rows').value;
 console.log(typeof(row))
-let r = winw / fm;
-console.log('r='+r)
+let r = winw / fm; //r 应该是指的单元格的长度
 let sq= Math.sqrt(3);
-console.log('sq='+sq)
+// console.log('sq='+sq)
 //这个地方必须强制转换，怪不得总是运算出错，把6加到0.5后面变成 0.56
 let winh = ( 0.5+ Number(row)) * sq*r ;
 
@@ -20,7 +19,7 @@ let tiles = [];
 let osc, envelope, fft;
 
 function resetSketch(){
-  winw = document.getElementsByTagName('body')[0].clientWidth;
+  let winw = document.getElementsByTagName('body')[0].clientWidth;
   col = document.getElementById('cols').value;
   fm = 3 * col / 2 + 0.5;
   console.log('fm='+fm)
@@ -40,9 +39,6 @@ function resetSketch(){
   tiles = [];
 
   createCanvas(winw, winh);
-  // console.log(fm);
-  // console.log(winw);
-  // console.log(winh);
   osc = new p5.SinOsc();
   envelope = new p5.Env();
   envelope.setADSR(0.001, 0.5, 0.1, 0.5);
@@ -55,15 +51,10 @@ function resetSketch(){
 
 function setup() {
   createCanvas(winw, winh);
-  // console.log(fm);
-  // console.log(winw);
-  // console.log(winh);
   osc = new p5.SinOsc();
   envelope = new p5.Env();
   envelope.setADSR(0.001, 0.5, 0.1, 0.5);
   envelope.setRange(1, 0);
-  // osc.start();
-
   for (let id = 0; id < length; id++) {
     tiles.push( Math.floor(Math.random() * 2)  );
 }
@@ -134,6 +125,8 @@ function mouseReleased() {
     }
   }
 }
+
+window.addEventListener("resize",resetSketch)
 
 
 
