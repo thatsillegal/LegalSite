@@ -5,23 +5,29 @@
     
   </head>
   <body style="margin: 0; overflow-x: hidden;">
-    <form>
+    <!-- 隐藏了这个form -->
+    <form style="display: none;">
       cols:
       <input type="number" name="cols" min="1" max="40" value="6" id="cols" oninput="if(value>20) value=20" onchange="resetSketch()">
-      <!-- 空格的意思 -->
+      <!-- &emsp是空格的意思 -->
       &emsp;&emsp; 
       rows: 
       <input type="number" name="rows" min="1" max="40" value="6" id="rows" oninput="if(value>20) value=20" onchange="resetSketch()">
     </form>
-    <button style="height:10vh; width:20vw" onclick="let a = document.getElementById('rows').value; document.getElementById('rows').value = Number(a) + 1; resetSketch()">Row On</button>
-    <button style="height:10vh; width:20vw" onclick="let a = document.getElementById('rows').value; document.getElementById('rows').value = Number(a) - 1; resetSketch()">Row Down</button>
-    <button style="height:10vh; width:20vw" onclick="let a = document.getElementById('cols').value; document.getElementById('cols').value = Number(a) + 1; resetSketch()">Col On</button>
-    <button style="height:10vh; width:20vw" onclick="let a = document.getElementById('cols').value; document.getElementById('cols').value = Number(a) - 1; resetSketch()">Col Down</button>
+    <div>
+      <button style="float:left;height:10vh; width:calc(100vw/4); margin:0px;; padding: 0px;" onclick="let a = document.getElementById('rows').value; document.getElementById('rows').value = Number(a) + 1; resetSketch()">R+</button>
+      <button style="float:left;height:10vh; width:calc(100vw/4); margin:0px; padding: 0px;" onclick="let a = document.getElementById('rows').value; document.getElementById('rows').value = Number(a) - 1; resetSketch()">R-</button>
+      <button style="float:left;height:10vh; width:calc(100vw/4); margin:0px; padding: 0px;" onclick="let a = document.getElementById('cols').value; document.getElementById('cols').value = Number(a) + 1; resetSketch()">C+</button>
+      <button style="float:left;height:10vh; width:calc(100vw/4); margin:0px; padding: 0px;" onclick="let a = document.getElementById('cols').value; document.getElementById('cols').value = Number(a) - 1; resetSketch()">C-</button>
+    </div>  
     <script src="sketch.js"></script>
   </body>
   <style>
     body::-webkit-scrollbar{
       width:0px;
+    }
+    button{
+      font-size:24px;
     }
   </style>
 </html>
